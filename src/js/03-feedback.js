@@ -9,8 +9,18 @@ if (formDataStr) {
 
 form.addEventListener("input", (ev) => {
     const data = {
-        email: ev.target.elements.email.value,
-        message: ev.target.elements.message.value,
-    }
+        email: form.elements.email.value,
+        message: form.elements.message.value,
+    };
     localStorage.setItem("feedback-form-state", JSON.stringify(data));
+});
+
+form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    console.log({
+        email: form.elements.email.value,
+        message: form.elements.message.value,
+    });
+    localStorage.removeItem("feedback-form-state");
+    form.reset();
 });
