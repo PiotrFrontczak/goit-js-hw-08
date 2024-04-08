@@ -13,6 +13,6 @@ const delayedUpdate = throttle((data) => {
     localStorage.setItem("videoplayer-current-time", data.seconds);
 }, 1000);
 
-player.on('timeupdate', (data) => {
-    delayedUpdate(data)
-})
+player.on('timeupdate', (eventData) => {
+    delayedUpdate(eventData);
+});
